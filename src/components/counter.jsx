@@ -22,10 +22,12 @@ class Counter extends Component {
   //     );
   //   }
 
-  handleIncrement() {
-    console.log("increment clicked");
+  handleIncrement(countNumber) {
+    console.log("increment clicked", this);
     //State is immutable. Pass an object to append or change the count value.
     this.setState({ count: this.state.count + 1 });
+    //testing passing arguments with arrow notation
+    //this.setState({ count: countNumber });
   }
 
   render() {
@@ -33,6 +35,7 @@ class Counter extends Component {
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
+          //   onClick={() => this.handleIncrement(5)}
           onClick={this.handleIncrement}
           className="btn btn-secondary btn-sm"
         >
