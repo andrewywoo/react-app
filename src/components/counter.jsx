@@ -8,11 +8,17 @@ class Counter extends Component {
   constructor(props) {
     super(props);
     this.handleIncrement = this.handleIncrement.bind(this);
+    this.handleDecrement = this.handleDecrement.bind(this);
   }
 
-  handleIncrement(countNumber) {
+  handleIncrement() {
     //State is immutable. Pass an object to append or change the count value.
     this.setState({ value: this.state.value + 1 });
+  }
+
+  handleDecrement() {
+    //State is immutable. Pass an object to append or change the count value.
+    this.setState({ value: this.state.value - 1 });
   }
 
   render() {
@@ -21,9 +27,15 @@ class Counter extends Component {
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm m-2"
+        >
+          +
+        </button>
+        <button
+          onClick={this.handleDecrement}
           className="btn btn-secondary btn-sm"
         >
-          Increment
+          -
         </button>
       </div>
     );
